@@ -23,3 +23,8 @@ nav{
   color: #fff;
   font-size: 32px;
 }
+
+.form{
+  display: flex;
+  flex-direction: row;
+}

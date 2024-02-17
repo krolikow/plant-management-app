@@ -28,16 +28,28 @@
     </div>
   </div>
 </nav>
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3">
-    <div *ngFor="let plant of plants">
-      <div class="col mb-4">
-        <app-plant-card [plant]="plant"></app-plant-card>
-      </div>
+
+<form class="form w-25 mt-3 mb-4">
+  <input class="form-control" type="search" placeholder="Search">
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="link.link"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
+<router-outlet></router-outlet>
+<div class="row row-cols-1 row-cols-md-3">
+  <div *ngFor="let plant of plants">
+    <div class="col mb-4">
+      <app-plant-card [plant]="plant"></app-plant-card>
     </div>
   </div>
-  <div class="add-plant">
-    <i class="ph ph-plus add-plant-icon"></i>
-  </div>
 </div>
-
+<div class="add-plant">
+  <i class="ph ph-plus add-plant-icon"></i>
+</div>

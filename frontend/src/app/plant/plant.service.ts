@@ -12,7 +12,7 @@ export class PlantService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getPlantList(): Observable<Plant[]> {
+  getPlantList(categoryId: number): Observable<Plant[]> {
     return this.httpClient
       .get<GetResponse>(this.baseUrl)
       .pipe(map(response => response._embedded.plants))

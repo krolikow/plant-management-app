@@ -5,7 +5,9 @@ import {PlantListComponent} from "./plant/plant-list/plant-list.component";
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {PlantService} from "./plant/plant.service";
 import {PlantCardComponent} from "./plant/plant-card/plant-card.component";
-import {NgOptimizedImage} from "@angular/common";
+import {MatTabsModule} from '@angular/material/tabs';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {RoutingModule} from "./routing.module";
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import {NgOptimizedImage} from "@angular/common";
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgOptimizedImage,
+    MatTabsModule,
+    RoutingModule
   ],
-  providers: [PlantService],
+  providers: [PlantService, provideAnimationsAsync()],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
