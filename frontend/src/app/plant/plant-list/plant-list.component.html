@@ -1,7 +1,40 @@
-<div class="row row-cols-1 row-cols-md-3">
-  <div *ngFor="let plant of plants">
-    <div class="col mb-4">
-      <app-plant-card [plant]="plant"></app-plant-card>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Plant</a>
+    <button class="navbar-toggler" id="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">My Plants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Statistics</a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse"
+             data-bs-target=".navbar-collapse.show">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3">
+    <div *ngFor="let plant of plants">
+      <div class="col mb-4">
+        <app-plant-card [plant]="plant"></app-plant-card>
+      </div>
     </div>
   </div>
 </div>
+
