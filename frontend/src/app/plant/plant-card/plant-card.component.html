@@ -1,0 +1,13 @@
+<div class="card" style="width: 19rem;">
+  <img [src]=plant?.imageUrl class="card-img-top card-image" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{plant?.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted tag" [ngClass]="{'tag--tropical': category==='tropical',
+      'tag--ornamental': category === 'ornamental', 'tag--succulents': category === 'succulents'}" >{{category}}</h6>
+    <p class="card-text">{{plant?.description}}</p>
+    <p class="card-text">Watering: {{plant?.wateringNeedsMinutes}}min</p>
+    <p class="card-text">Light: {{plant?.lightRequirements}}</p>
+    <p class="card-text">Flowering: {{plant?.floweringPeriod}}</p>
+    <p class="card-text">Minimum temperature: {{plant?.minTemperatureCelsius}}°C</p>
+  </div>
+</div>

@@ -1,3 +1,7 @@
-<p *ngFor="let plant of plants">
-  {{plant.name}}: {{plant.description}}
-</p>
+<div class="row row-cols-1 row-cols-md-3">
+  <div *ngFor="let plant of plants">
+    <div class="col mb-4">
+      <app-plant-card [plant]="plant"></app-plant-card>
+    </div>
+  </div>
+</div>
