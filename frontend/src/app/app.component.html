@@ -1,2 +1,49 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Plant</a>
+    <button class="navbar-toggler" id="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">My Plants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Statistics</a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse"
+             data-bs-target=".navbar-collapse.show">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<form class="form w-25 mt-3 mb-4">
+  <input class="form-control" type="search" placeholder="Search">
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+<nav class="category-nav" mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a mat-tab-link routerLink="/plants" routerLinkActive="active">All</a>
+  <a mat-tab-link routerLink="/category/1" routerLinkActive="active">Succulents</a>
+  <a mat-tab-link routerLink="/category/2" routerLinkActive="active">Tropical</a>
+  <a mat-tab-link routerLink="/category/3" routerLinkActive="active">Ornamental</a>
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+
+<div class="add-plant">
+  <i class="ph ph-plus add-plant-icon"></i>
+</div>
 

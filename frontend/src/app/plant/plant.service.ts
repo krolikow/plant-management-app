@@ -12,15 +12,22 @@ export class PlantService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getPlantList(categoryId: number): Observable<Plant[]> {
+  getPlantList(): Observable<Plant[]> {
     return this.httpClient
       .get<GetResponse>(this.baseUrl)
       .pipe(map(response => response._embedded.plants))
   }
+
+  getPlantListByCategory(categoryId: number): Observable<Plant[]> {
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}`
+    return this.httpClient
+      .get<GetResponse>(searchUrl)
+      .pipe(map(response => response._embedded.plants))
+  }
 }
 
-interface GetResponse{
-  _embedded:{
+interface GetResponse {
+  _embedded: {
     plants: Plant[]
   }
 }
