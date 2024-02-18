@@ -1,0 +1,9 @@
+<nav class="category-nav" mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a mat-tab-link routerLink="/plants" routerLinkActive="active">ALL</a>
+  <a *ngFor="let plantCategory of plantCategories" mat-tab-link
+     routerLink="/category/{{plantCategory.id}}"
+     routerLinkActive="active">{{plantCategory.categoryName}}</a>
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>

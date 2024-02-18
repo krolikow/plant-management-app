@@ -33,15 +33,7 @@
   <input class="form-control" type="search" placeholder="Search">
   <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
-<nav class="category-nav" mat-tab-nav-bar [tabPanel]="tabPanel">
-  <a mat-tab-link routerLink="/plants" routerLinkActive="active">All</a>
-  <a mat-tab-link routerLink="/category/1" routerLinkActive="active">Succulents</a>
-  <a mat-tab-link routerLink="/category/2" routerLinkActive="active">Tropical</a>
-  <a mat-tab-link routerLink="/category/3" routerLinkActive="active">Ornamental</a>
-</nav>
-<mat-tab-nav-panel #tabPanel>
-  <router-outlet></router-outlet>
-</mat-tab-nav-panel>
+<app-plant-category-navbar></app-plant-category-navbar>
 
 <div class="add-plant">
   <i class="ph ph-plus add-plant-icon"></i>
