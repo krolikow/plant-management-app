@@ -23,6 +23,19 @@ export class PlantService {
     return this.getPlants(searchUrl);
   }
 
+  getPlantListPaginate(page: number,
+                       pageSize: number): Observable<GetResponsePlants> {
+    const searchUrl = `${this.baseUrl}?page=${page}&size=${pageSize}`
+    return this.httpClient.get<GetResponsePlants>(searchUrl);
+  }
+
+  getPlantListByCategoryPaginate(page: number,
+                                 pageSize: number, categoryId: number): Observable<GetResponsePlants> {
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}` +
+      `&page=${page}&size=${pageSize}`
+    return this.httpClient.get<GetResponsePlants>(searchUrl);
+  }
+
   getPlantCategories(): Observable<PlantCategory[]> {
     return this.httpClient
       .get<GetResponsePlantCategory>(this.categoryUrl)
@@ -32,6 +45,14 @@ export class PlantService {
   searchPlants(keyword: string): Observable<Plant[]> {
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyword}`
     return this.getPlants(searchUrl);
+  }
+
+  searchPlantsPaginate(page: number,
+                       pageSize: number,
+                       keyword: string): Observable<GetResponsePlants> {
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyword}`
+      + `&page=${page}&size=${pageSize}`;
+    return this.httpClient.get<GetResponsePlants>(searchUrl);
   }
 
   private getPlants(searchUrl: string) {
@@ -46,6 +67,12 @@ export class PlantService {
 interface GetResponsePlants {
   _embedded: {
     plants: Plant[]
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
   }
 }
 

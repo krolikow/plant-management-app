@@ -10,7 +10,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {RoutingModule} from "./routing.module";
 import {PlantCategoryNavbarComponent} from "./plant-category-navbar/plant-category-navbar.component";
 import {SearchComponent} from "./search/search.component";
-
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap"
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,8 @@ import {SearchComponent} from "./search/search.component";
     BrowserModule,
     HttpClientModule,
     MatTabsModule,
-    RoutingModule
+    RoutingModule,
+    NgbModule,
   ],
   providers: [PlantService, provideAnimationsAsync()],
   bootstrap: [AppComponent],

@@ -1,12 +1,49 @@
-<div class="row row-cols-1 row-cols-md-3">
-  <div *ngFor="let plant of plants">
-    <div class="col mb-4">
-      <app-plant-card [plant]="plant"></app-plant-card>
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="row row-cols-1 row-cols-md-3">
+          <div *ngFor="let plant of plants">
+            <div class="col mb-4">
+              <app-plant-card [plant]="plant"></app-plant-card>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="plants?.length === 0"
+             class="alert alert-warning col-md-12" role="alert">
+          No plants found :(
+        </div>
+      </div>
+      <div class="footer-pagination">
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-9 pagination-container">
+                <ngb-pagination
+                  [(page)]="pageNumber"
+                  [pageSize]="pageSize"
+                  [collectionSize]="totalElements"
+                  [maxSize]="5"
+                  [boundaryLinks]="true"
+                  (pageChange)="listPlants()"
+                ></ngb-pagination>
+                <div class="col-md-3">
+                  <select #pageSelect
+                          (change)="updatePageSize(pageSelect.value)"
+                          class="form-select">
+                    <option selected>2</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>25</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<div *ngIf="plants?.length === 0"
-     class="alert alert-warning col-md-12" role="alert">
-  No plants found :(
-</div>
-
