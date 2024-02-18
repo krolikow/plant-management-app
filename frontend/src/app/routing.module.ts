@@ -12,6 +12,7 @@ const routes: Routes = [
   // },
   {path: 'category/:id', component: PlantListComponent},
   {path: 'category', component: PlantListComponent},
+  {path: 'search/:keyword', component: PlantListComponent},
   {path: '', redirectTo: '/plants', pathMatch: 'full'},
   {path: '**',redirectTo: '/plants', pathMatch: 'full'}]
 

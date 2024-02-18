@@ -11,6 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 export class PlantListComponent implements OnInit {
   plants: Plant[] = []
   currentCategoryId: number = 1;
+  searchMode: boolean = false;
 
   constructor(private plantService: PlantService,
               private route: ActivatedRoute) {
@@ -23,6 +24,15 @@ export class PlantListComponent implements OnInit {
   }
 
   listPlants() {
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
+    if (this.searchMode) {
+      this.handleSearchPlants();
+    } else {
+      this.handleListPlants();
+    }
+  }
+
+  handleListPlants() {
     const routeParams = this.route.snapshot.paramMap;
     const hasCategoryId: boolean = routeParams.has('id');
     if (hasCategoryId) {
@@ -39,5 +49,14 @@ export class PlantListComponent implements OnInit {
         }
       )
     }
+  }
+
+  private handleSearchPlants() {
+    const keyword: string = this.route.snapshot.paramMap.get('keyword')!;
+    this.plantService.searchPlants(keyword).subscribe(
+      data => {
+        this.plants = data;
+      }
+    )
   }
 }

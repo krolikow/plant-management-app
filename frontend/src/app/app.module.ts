@@ -9,13 +9,15 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {RoutingModule} from "./routing.module";
 import {PlantCategoryNavbarComponent} from "./plant-category-navbar/plant-category-navbar.component";
+import {SearchComponent} from "./search/search.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     PlantListComponent,
     PlantCardComponent,
-    PlantCategoryNavbarComponent
+    PlantCategoryNavbarComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

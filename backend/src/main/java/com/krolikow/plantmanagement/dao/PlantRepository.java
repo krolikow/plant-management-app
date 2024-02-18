@@ -10,4 +10,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin("http://localhost:4200")
 public interface PlantRepository extends JpaRepository<Plant, Long> {
     Page<Plant> findByCategoryId(@Param("id") Long id, Pageable pageable);
+    Page<Plant> findByNameContaining(@Param("name") String name, Pageable pageable);
 }
