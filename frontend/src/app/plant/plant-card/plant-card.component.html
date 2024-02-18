@@ -3,11 +3,11 @@
   <div class="card-body">
     <h5 class="card-title">{{plant?.name}}</h5>
     <h6 class="card-subtitle mb-2 text-muted tag" [ngClass]="{'tag--tropical': category==='tropical',
-      'tag--ornamental': category === 'ornamental', 'tag--succulents': category === 'succulents'}" >{{category}}</h6>
+      'tag--ornamental': category === 'ornamental', 'tag--succulents': category === 'succulents'}">{{category}}</h6>
     <p class="card-text">{{plant?.description}}</p>
-    <p class="card-text">Watering: {{plant?.wateringNeedsMinutes}}min</p>
-    <p class="card-text">Light: {{plant?.lightRequirements}}</p>
-    <p class="card-text">Flowering: {{plant?.floweringPeriod}}</p>
-    <p class="card-text">Minimum temperature: {{plant?.minTemperatureCelsius}}°C</p>
+    <p class="card-text"><i class="ph ph-drop"></i> {{plant?.wateringNeedsMinutes}}min</p>
+    <p class="card-text"><i class="ph ph-sun"></i>{{plant?.lightRequirements}}</p>
+    <p class="card-text"><i class="ph ph-flower"></i> {{plant?.floweringPeriod}}</p>
+    <p class="card-text"><i class="ph ph-thermometer"></i> {{plant?.minTemperatureCelsius}}°C</p>
   </div>
 </div>
